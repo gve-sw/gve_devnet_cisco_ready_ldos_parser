@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    <link href="http://www.cisco.com/web/fw/cisco-ui/2.0.5/dist/css/cui-standard.min.css" rel="stylesheet" type="text/css">
+    <title>{% block title %}Cisco Ready LDoS Parser{% endblock %}</title>
+  </head>
+
+  <body class="cui">
+    <nav class="header" id="styleguideheader" role="navigation">
+      <div class="container-fluid">
+          <div class="header-panels">
+              <div class="header-panel hidden-md-down">
+                  <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                      <span class="icon-cisco"></span>
+                  </a>
+                  <h1 class="header__title">
+                      <span>Cisco Ready LDoS Parser</span>
+                  </h1>
+              </div>
+              <div class="header-panel header-panel--center base-margin-left base-margin-right hidden-lg-up">
+                  <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                      <span class="icon-cisco"></span>
+                  </a>
+              </div>
+              <div class="header-panel header-panel--right hidden-md-down">
+              </div>
+          </div>
+      </div>
+    </nav>
+    <div class="content content--alt">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Left Rail -->
+          <div class="col-xl-2">
+          </div>
+          <!-- Middle Rail -->
+          <div class="col-xl-8">
+            <br>
+            <div class="panel panel--loose panel--raised base-margin-bottom">
+              <h2 class="subtitle">Upload Cisco Ready File</h2>
+              <hr>
+              <div class="section">
+                <div class="container">
+                    <div class="col-xl-6">
+                      <a href="/parse/single-file"style="float:right">Single Upload</a>
+                    </div>
+                    <div class="col-xl-6">
+                      <a href="/parse/multi-file">Multi Uploads</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="content">{% block content %}{% endblock %}</div>
+             </div>
+            </div>
+          </div>
+          <!-- Right Rail -->
+          <div class="col-xl-2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

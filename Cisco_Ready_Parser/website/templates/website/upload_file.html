@@ -1,0 +1,15 @@
+{% extends 'website/base.html' %} {% block content %}
+<h4 class="text-center">Choose File and Date Interval</h4>
+<div class="container">
+  <form class="form" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }} 
+    <button class="btn btn--success" type="submit">Parse</button>
+  </form>
+</div>
+  {% if error_message %}
+  <div class="subheader">Error</div>
+  <div class="alert alert--danger" role="alert">
+      <div class="alert__message">{{ error_message|linebreaks}}</div>
+  </div>
+  {% endif %}
+{% endblock %}

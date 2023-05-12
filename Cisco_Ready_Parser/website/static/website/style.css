@@ -1,0 +1,60 @@
+.container {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  padding: 0px;
+  /* padding: 0px; */
+  /* margin: 0px; */
+}
+
+.error_wrapper {
+  text-align: center;
+}
+
+.error_message {
+  color: red;
+  font-size: 24;
+  display: inline-block;
+  text-align: left;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* text-align: center; */
+  /* align-items: center; */
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  transition-duration: 0.4s;
+  font-size: 35px;
+  width: 400px;
+  color: white;
+}
+
+.button:hover {
+  color: black;
+  background-color: white;
+}
+
+/* .button { */
+/*   background-color: #4caf50; */
+/*   font-size: 35px; */
+/*   width: 400px; */
+/*   color: white; */
+/* } */
+
+p {
+  padding: -30px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: -10px;
+}
+ul {
+  list-style-type: none;
+  margin-bottom: -10px;
+}
