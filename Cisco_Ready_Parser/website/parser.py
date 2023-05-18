@@ -20,6 +20,7 @@ class Parser:
         start_date,
         end_date,
         include_minor_items,
+        output_date_format,
         selected_date_target,
         file_type="single customer",
     ):
@@ -31,6 +32,7 @@ class Parser:
         self._end_date = end_date
         self.include_minor_items = include_minor_items
         self.selected_date_target = selected_date_target
+        self.output_date_format = output_date_format
         self.file_type = file_type
 
         self.result = []
@@ -271,14 +273,28 @@ class Parser:
 
         bold_font = Font(bold=True)
 
+
+        #  count_duplicates[count_duplicates[self.selected_date_target].notnull()],
+        #     portfolio,
+
         for df_category in self.result:
-            df = df_category[0][cols_to_keep]
+            df = df_category[0][cols_to_keep] #grabs the df and filters on it
             try:
                 # nice case when df is empty
-                df[interest] = df[interest].dt.strftime("%d/%m/%Y")
+                if self.output_date_format == "DD/MM/YYYY":
+                    df[interest] = df[interest].dt.strftime("%d/%m/%Y")
+                elif self.output_date_format == "MM/DD/YYYY":
+                    df[interest] = df[interest].dt.strftime("%m/%d/%Y")    
+                else:
+                    df[interest] = df[interest].dt.strftime("%Y/%m/%d")
             except:
                 pass
-            category = df_category[1]
+
+            #skip category is no data
+            if df.empty:
+                continue
+
+            category = df_category[1] #grabs the category
             worksheet.cell(row=row_num, column=1).value = category
             worksheet.cell(row=row_num, column=1).font = bold_font
             df.to_excel(

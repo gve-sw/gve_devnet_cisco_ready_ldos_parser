@@ -9,6 +9,7 @@ def parse_file(
     start_date,
     end_date,
     include_minor_items,
+    output_date_format,
     selected_date_target,
     file_type="single customer",
 ):
@@ -32,13 +33,13 @@ def parse_file(
         start_date,
         end_date,
         include_minor_items,
+        output_date_format,
         selected_date_target,
         file_type,
     )
 
-
 def threading_for_folder(
-    name, start_date, end_date, include_minor_items, selected_date_target
+    name, start_date, end_date, include_minor_items, output_date_format, selected_date_target, 
 ):
     """
     Description: Function used by the Django views, upload_folder, as it uses multiprocessing.
@@ -53,6 +54,7 @@ def threading_for_folder(
                                            \'End of Software Maintenance Date\',
                                            \'End of Product Sale Date\',
                                            \'Last Renewal Date\'
+        output_date_format (str): describes the format to be used for dates
     """
 
     unparsed_path = os.path.join("media", "unparsed")
@@ -66,5 +68,6 @@ def threading_for_folder(
         start_date,
         end_date,
         include_minor_items,
+        output_date_format,
         selected_date_target,
     )

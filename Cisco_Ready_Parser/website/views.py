@@ -122,6 +122,7 @@ def upload_file(request):
         end_date = request.POST["end_date"]
         include_minor_items = request.POST["include_minor_items"]
         selected_date_target = request.POST["base_date_selection_on"]
+        output_date_format = request.POST["output_date_format"]
         file_type = request.POST["file_type"]
 
         if date_interval_is_valid(start_date, end_date):
@@ -139,6 +140,7 @@ def upload_file(request):
                 start_date,
                 end_date,
                 include_minor_items,
+                output_date_format,
                 selected_date_target,
                 file_type,
             )
@@ -202,6 +204,7 @@ def upload_folder(request):
         end_date = request.POST["end_date"]
         include_minor_items = request.POST["include_minor_items"]
         selected_date_target = request.POST["base_date_selection_on"]
+        output_date_format = request.POST["output_date_format"]
 
         if date_interval_is_valid(start_date, end_date):
             threads = []
@@ -224,6 +227,7 @@ def upload_folder(request):
                         start_date,
                         end_date,
                         include_minor_items,
+                        output_date_format,
                         selected_date_target,
                     ),
                 )

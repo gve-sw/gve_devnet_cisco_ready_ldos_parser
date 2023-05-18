@@ -42,6 +42,18 @@ def time_filter_selection():
     return forms.ChoiceField(choices=CHOICES)
 
 
+def output_date_format():
+    DDMMYYYY = "DD/MM/YYYY"
+    MMDDYYYY = "MM/DD/YYYY"
+    YYYYMMDD = "YYYY/MM/DD"
+
+    CHOICES = (
+            (DDMMYYYY, "DD/MM/YYYY"),
+            (MMDDYYYY, "MM/DD/YYYY"),
+            (YYYYMMDD, "YYYY/MM/DD"),
+    )
+    return forms.ChoiceField(choices=CHOICES)
+
 class UploadFileForm(forms.Form):
     start_date = forms.DateField(widget=DateInput())
     end_date = forms.DateField(widget=DateInput())
@@ -51,6 +63,7 @@ class UploadFileForm(forms.Form):
     include_minor_items = minor_items_radio()
     base_date_selection_on = time_filter_selection()
     file_type = single_or_many_customers_per_file()
+    output_date_format = output_date_format()
 
 
 class UploadFolderForm(forms.Form):
@@ -59,3 +72,4 @@ class UploadFolderForm(forms.Form):
     files = forms.FileField(widget=forms.ClearableFileInput(attrs={"multiple": True}))
     include_minor_items = minor_items_radio()
     base_date_selection_on = time_filter_selection()
+    output_date_format = output_date_format()

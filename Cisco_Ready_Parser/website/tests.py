@@ -44,6 +44,7 @@ class FileViewTestCase(TestCase):
                         "end_date": end_date,
                         "include_minor_items": flag,
                         "base_date_selection_on": date_option,
+                        "output_date_format": "DD/MM/YYYY",
                         "file_type": "single customer",
                     }
                     response = self.client.post(reverse("upload_file"), data=data)
@@ -74,6 +75,7 @@ class FileViewTestCase(TestCase):
                         "end_date": end_date,
                         "include_minor_items": flag,
                         "base_date_selection_on": date_option,
+                        "output_date_format": "DD/MM/YYYY",
                         "file_type": "multiple customers",
                     }
                     response = self.client.post(reverse("upload_file"), data=data)
@@ -111,6 +113,7 @@ class FileViewTestCase(TestCase):
                             "end_date": date_pair[1],
                             "include_minor_items": flag,
                             "base_date_selection_on": date_option,
+                            "output_date_format": "DD/MM/YYYY",
                             "file_type": "multiple customers",
                         }
                         response = self.client.post(reverse("upload_file"), data=data)
@@ -134,6 +137,7 @@ class FileViewTestCase(TestCase):
                 "end_date": "2022-01-31",
                 "include_minor_items": "yes",
                 "base_date_selection_on": "Last Date of Support",
+                "output_date_format": "DD/MM/YYYY",
                 "file_type": "single customer",
             }
             if method.lower() == "put":
