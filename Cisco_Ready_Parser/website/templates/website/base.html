@@ -42,18 +42,23 @@
               <h2 class="subtitle">Upload Cisco Ready File</h2>
               <hr>
               <div class="section">
-                <div class="container">
-                    <div class="col-xl-6">
-                      <a href="/parse/single-file"style="float:right">Single Upload</a>
+                <div class="container" style>
+                  <div class="center">
+                    <div class="row">
+                      <div class="col-xl-2">
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-8">
+                      <a href="/parse/single-file">Single Upload</a>
                       <a href="/parse/multi-file">Multi Uploads</a>
+                      <br>
+                      <div id="content">{% block content %}{% endblock %}</div>
+                    </div>
+                    <div class="col-xl-2">
+                    </div>  
                     </div>
                   </div>
                 </div>
-
-                <div id="content">{% block content %}{% endblock %}</div>
-             </div>
+              </div>
             </div>
           </div>
           <!-- Right Rail -->
